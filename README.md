@@ -1,66 +1,34 @@
-## Foundry
+# FundMe
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+A simple crowdfunding contract built with Foundry while learning smart contract development on Cyfrin Updraft.
 
-Foundry consists of:
+## What it does
 
-- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
-- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+- Anyone can fund the contract with ETH
+- A minimum funding amount in USD is enforced using a Chainlink ETH/USD price feed
+- Only the owner can withdraw the funds
 
-## Documentation
+## Deployed (Sepolia)
 
-https://book.getfoundry.sh/
+[0xeAA0D79A3B57D97DccB44a3858c568D125CeB7c4](https://sepolia.etherscan.io/address/0xeAA0D79A3B57D97DccB44a3858c568D125CeB7c4#code)
 
-## Usage
+## Getting started
 
-### Build
-
-```shell
-$ forge build
+```bash
+git clone --recurse-submodules https://github.com/Greatjr34/foundry-fund-me.git
+cd foundry-fund-me
+forge build
+forge test
 ```
 
-### Test
+## Deploy
 
-```shell
-$ forge test
+Create a `.env` file with `SEPOLIA_RPC_URL`, `SEPOLIA_PRIVATE_KEY` and `ETHERSCAN_API_KEY`, then:
+
+```bash
+make deploy-sepolia
 ```
 
-### Format
+## Built with
 
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+Solidity, Foundry, Chainlink price feeds
